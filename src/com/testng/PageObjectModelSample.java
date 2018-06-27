@@ -30,7 +30,10 @@ public class PageObjectModelSample {
 	@Test
 	public void test() {
 		By record = By.xpath("//*[@id=\"mtgInputBatchOS_2,0\"]");
-		new LoginPage(driver, wait).login("CPI", "CPI12345!").goToClaims().goToReportsWithAction().goToBatchOSPrinting()
+		new LoginPage(driver, wait).login("CPI", "CPI12345!")
+				.goToClaims()
+				.goToReportsWithAction()
+				.goToBatchOSPrinting()
 				.printSelectedRecord(record);
 	}
 }
