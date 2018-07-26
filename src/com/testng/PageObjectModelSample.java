@@ -21,7 +21,7 @@ public class PageObjectModelSample {
 	public void setup() {
 		System.setProperty("webdriver.gecko.driver", "C:\\geckodriver-v0.21.0-win64\\geckodriver.exe");
 		driver = new FirefoxDriver();
-		driver.get("http://192.10.10.240:9090/Geniisys/");
+		driver.get("http://192.10.10.110:10/Geniisys/");
 		wait = new FluentWait<>(driver);
 		wait.withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(1))
 				.ignoring(NoSuchElementException.class);
@@ -32,7 +32,7 @@ public class PageObjectModelSample {
 		By record = By.xpath("//*[@id=\"mtgInputBatchOS_2,0\"]");
 		new LoginPage(driver, wait).login("CPI", "CPI12345!")
 				.goToClaims()
-				.goToReportsWithAction()
+				.goToReports()
 				.goToBatchOSPrinting()
 				.printSelectedRecord(record);
 	}

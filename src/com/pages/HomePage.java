@@ -11,6 +11,7 @@ public class HomePage {
 	private FluentWait<WebDriver> wait;
 
 	private By claimsOption = By.xpath("//*[@id='iconClaims']");
+	private By accountingOption = By.xpath("//*[@id='iconAccounting']");
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -25,5 +26,10 @@ public class HomePage {
 	public ClaimsMainPage goToClaims() {
 		wait.until(ExpectedConditions.elementToBeClickable(claimsOption)).click();
 		return new ClaimsMainPage(driver, wait);
+	}
+	
+	public AccountingMainPage goToAccounting() {
+		wait.until(ExpectedConditions.elementToBeClickable(accountingOption)).click();
+		return new AccountingMainPage(driver, wait);
 	}
 }
